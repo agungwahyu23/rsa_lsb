@@ -25,6 +25,9 @@
                                 <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Prima')">Cek Bilangan Prima</button> -->
 
                                 <div class="sb-sidenav-menu-heading">Steganografi</div>
+                                <a class="nav-link tablinks" onclick="openCity(event, 'Dekripsi')">
+                                <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
+                            </a>
                             </div>
                         </div>
                     </div>

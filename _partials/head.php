@@ -51,7 +51,7 @@
 
         /* Change background color of buttons on hover */
         .tab button:hover {
-          background-color: #ddd;
+          background-color: #a9a9a9;
         }
 
         /* Create an active/current "tab button" class */
@@ -67,6 +67,31 @@
           width: 80%;
           max-width: 80%;
           min-height: auto;
+        }
+
+        /* Style the buttons inside the tab */
+        .tab a {
+          display: block;
+          background-color: inherit;
+          color: black;
+          padding: 22px 16px;
+          width: 100%;
+          border: none;
+          outline: none;
+          text-align: left;
+          cursor: pointer;
+          transition: 0.3s;
+          font-size: 17px;
+        }
+
+        /* Change background color of buttons on hover */
+        .tab a:hover {
+          background-color: #a9a9a9;
+        }
+
+        /* Create an active/current "tab button" class */
+        .tab a.active {
+          background-color: none;
         }
     </style>
 </head>
