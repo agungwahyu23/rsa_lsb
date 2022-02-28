@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php 
-    include '../fungsi/fungsi_rsa.php';
+    include 'encode.php';
     include('../_partials/head.php');
     ?>
 
@@ -57,7 +57,7 @@
 
                             <!-- Blok enkripsi -->
                             <div id="LSBenc" class="tabcontent">
-                                <form method="post" action="../fungsi/encrypt_lsb.php">
+                                <form method="post" action="proses.php" enctype="multipart/form-data">
 
                                     <div class="row mb-3">
                                         <label for="nilaiP" class="col-sm-2 col-form-label">Masukkan Pesan</label>
@@ -69,7 +69,7 @@
                                     <div class="row mb-3">
                                         <label for="nilaiP" class="col-sm-2 col-form-label">Pilih Gambar Penampung</label>
                                         <div class="col-md-9">
-                                            <input type="file" name="file" id="" class="form-control">
+                                            <input type="file" name="image" id="image" class="form-control">
                                         </div>
                                     </div>
                                     <div class="row">

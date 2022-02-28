@@ -85,6 +85,7 @@ explode    = Memecah String;
         $d = $key[0];
         $vald =gmp_strval($d); 
         $hasilenkripsi = enkripsi($teks, $n, $e);
+        $chipertext = base64_encode($hasilenkripsi);
         $time_end = microtime(true)*1000; // Timer stop eksekusi
         // Waktu Eksekusi
         $duration = $time_end - $time_start;
@@ -96,7 +97,8 @@ explode    = Memecah String;
         $n=$_POST['n'];
         $d=$_POST['d'];
         $teks=$_POST['teks'];
-        $hasildekripsi = dekripsi($teks, $d, $n);
+        $teks2 = base64_decode($teks);
+        $hasildekripsi = dekripsi($teks2, $d, $n);
         $time_end = microtime(true)*1000; // Timer stop eksekusi
         // Waktu Eksekusi
         $duration = $time_end - $time_start;

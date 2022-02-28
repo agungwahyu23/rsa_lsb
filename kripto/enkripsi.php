@@ -28,8 +28,10 @@
                             <a class="nav-link tablinks" href="../stegano/encrypt.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Embedding
                             </a>
-                            <button class="nav-link tablinks" onclick="openCity(event, 'LSBdec')">
+                            <a class="nav-link tablinks" href="../stegano/ekstrak.php">
+                                <!-- <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Ekstraksi -->
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Ekstraksi
+                            </a>
                             </button>
                         </div>
                     </div>
@@ -99,7 +101,8 @@
                                         6. Kunci privat (d, N) = (<span style="color:blue;">'.$d.'</span>, <span style="color:blue;">'.$n.'</span>)</p>
                                         <p><b>Kunci yang digunakan :</b></p>
                                         <p>Kunci publik (e, N) = (<span style="color:blue;">'.$e.'</span>, <span style="color:blue;">'.$n.'</span>)</p>
-                                        <p><b>Hasil enkripsi pesan :</b></p> <textarea rows="4" cols="50" placeholder="Chiperteks" name="teks" id="teks" disabled>'.$hasilenkripsi.' </textarea>
+                                        <p><b>Hasil enkripsi pesan (ASCII) :</b></p> <textarea rows="4" cols="50" placeholder="Chiperteks" name="teks" id="teks" disabled>'.$hasilenkripsi.' </textarea>
+                                        <p><b>Chipertext :</b></p> <textarea rows="4" cols="50" placeholder="Chiperteks" name="teks" id="teks" disabled>'.$chipertext.' </textarea>
                                         <p style="color:gray;"><i>'.$duration.' detik</i></p>';
                                     }?>
                                 </div>
@@ -117,7 +120,7 @@
                                             value="<?php if(isset($_POST['enkripsi'])){echo $n;} ?>" required>
                                         <p><b>Pesan :</b></p>
                                         <textarea rows="4" class="form-control mb-3" cols="50" placeholder="Chiperteks" name="teks" id="teks"
-                                            required><?php if(isset($_POST['enkripsi'])){echo $hasilenkripsi;} ?></textarea>
+                                            required><?php if(isset($_POST['enkripsi'])){echo $chipertext;} ?></textarea>
                                         <button type="submit" class="submit" name="dekripsi" id="dekripsi"
                                             value="dekripsi">Dekripsi</button>
                                     </form>

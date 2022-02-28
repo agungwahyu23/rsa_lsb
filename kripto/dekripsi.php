@@ -100,6 +100,8 @@
                                             <hr><h3 align="center">Hasil Dekripsi</h3><hr>
                                             <p><b>Pesan chiperteks :</b></p>
                                             <textarea rows="4" cols="50" placeholder="Chiperteks" name="teks" id="teks" disabled>'.$teks.' </textarea>
+                                            <p><b>Pesan (ASCII) :</b></p>
+                                            <textarea rows="4" cols="50" placeholder="Chiperteks" name="teks" id="teks" disabled>'.$teks2.' </textarea>
                                             <p><b>Kunci yang digunakan :</b></p>
                                             <P>Kunci privat (d, N) = (<span style="color:blue;">'.$d.'</span>, <span style="color:blue;">'.$n.'</span>)</p>
                                             </p><br/><b>Hasil dekripsi pesan :</b></p> <textarea rows="4" cols="50" placeholder="Chiperteks" name="teks" id="teks" disabled>'.$hasildekripsi.' </textarea>
