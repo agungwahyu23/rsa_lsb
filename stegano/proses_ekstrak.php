@@ -1,10 +1,10 @@
 <?php
-require_once('encode.php');
+include "decode.php";
 
-$pesan = $_POST['pesan'];
+// $image = "LSB-1bit_sample.png"; //image yang akan diambil pesannya
 $image = $_FILES['image'];
-$lets_encode = new encode();
 
-$lets_encode->executeLSB($pesan,$image);
+$lets_decode = new decode();
+$lets_decode->printMsg($image);
 
 ?>

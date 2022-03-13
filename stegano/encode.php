@@ -68,7 +68,7 @@ private function newImg()
 {
 	if(imagepng($this->img,$this->imgName))
     {
-        echo "Berhasil !, image baru ". $this->imgName .", untuk melihat pesan yang disisipkan di image buka showme.php";
+        echo "<script>alert('Berhasil');window.location='f_embed.php'</script>";   
     };
 	imagedestroy($this->img);
 

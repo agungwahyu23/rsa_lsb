@@ -15,7 +15,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="tab">
-                                <div class="sb-sidenav-menu-heading">Enkripsi</div>
+                                <div class="sb-sidenav-menu-heading">Kriptografi</div>
                                 <button class="nav-link tablinks" onclick="openCity(event, 'Enkripsi')">
                                     <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Enkripsi
                                 </button>
@@ -25,8 +25,12 @@
                                 <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Prima')">Cek Bilangan Prima</button> -->
 
                                 <div class="sb-sidenav-menu-heading">Steganografi</div>
-                                <a class="nav-link tablinks" onclick="openCity(event, 'Dekripsi')">
-                                <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
+                                <a class="nav-link tablinks" href="../stegano/f_embed.php">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Embedding
+                                </a>
+                                <a class="nav-link tablinks" href="../stegano/f_ekstrak.php">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Ekstraksi
+                                </a>
                             </a>
                             </div>
                         </div>

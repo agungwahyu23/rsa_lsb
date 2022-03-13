@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<?php 
+    include 'decode.php';
+    include('../_partials/head.php');
+    ?>
+
+<body class="sb-nav-fixed">
+
+    <?php include('../_partials/navbar.php'); ?>
+
+    <div id="layoutSidenav">
+
+        <div id="layoutSidenav_nav">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                <div class="sb-sidenav-menu">
+                    <div class="nav">
+                        <div class="tab">
+                            <div class="sb-sidenav-menu-heading">Enkripsi</div>
+                            <a class="nav-link tablinks" href="../kripto/enkripsi.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Enkripsi
+                            </a>
+                            <a class="nav-link tablinks" href="../kripto/dekripsi.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
+                            </a>
+                            <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Prima')">Cek Bilangan Prima</button> -->
+
+                            <div class="sb-sidenav-menu-heading">Steganografi</div>
+                            <a class="nav-link tablinks" href="../stegano/f_embed.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Embedding
+                            </a>
+                            <a class="nav-link tablinks" href="f_ekstrak.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Ekstraksi
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="sb-sidenav-footer">
+                    <div class="small">Logged in as:</div>
+                    Start Bootstrap
+                </div>
+            </nav>
+        </div>
+
+        <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Kriptografi</h1>
+                        
+                        <!-- Form Generator -->
+                        <div class="card mb-4 mt-3">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                Buat Pesan Rahasia
+                            </div>
+                            <div class="card-body">
+                                <!-- Blok enkripsi -->
+                                <div id="ekstrak" class="tabcontent">
+                                    <form method="post" action="f_ekstrak.php" enctype="multipart/form-data">
+                                        <div class="row mb-3">
+                                            <label for="nilaiP" class="col-sm-2 col-form-label">Pilih Gambar</label>
+                                            <div class="col-md-9">
+                                                <input type="file" name="image" id="image" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <button type="submit" class="submit btn btn-primary" name="ekstrak" id="ekstrak" value="ekstrak">Ekstrak</button>
+                                        </div>
+                                    </form>
+
+
+                                    <hr><h3 align="center">Hasil Ekstraksi</h3>
+                                    <p><b>Pesan : </b></p>
+                                    <textarea class="form-control" id="teks" name="teks" rows="5" disabled>
+
+                                    <?php if (isset($_POST['ekstrak'])){
+                                        // $image = "LSB-1bit_sample.png"; //image yang akan diambil pesannya
+                                        $image = $_FILES['image'];
+                                        
+                                        $lets_decode = new decode();
+                                        $lets_decode->printMsg($image);
+                                    }?>
+                                    
+                                    </textarea>
+                                    
+                                </div>
+                                <!-- / end enkripsi -->
+
+                            </div>
+                        </div>
+
+                    </div>
+                </main>
+                
+                <?php include('../_partials/footer.php') ?>
+
+            </div>
+    </div>
+
+    <?php include('../_partials/js.php') ?>
+
+</body>
+
+</html>
+z

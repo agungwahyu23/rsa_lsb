@@ -25,14 +25,12 @@
                             <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Prima')">Cek Bilangan Prima</button> -->
 
                             <div class="sb-sidenav-menu-heading">Steganografi</div>
-                            <a class="nav-link tablinks" href="../stegano/encrypt.php">
+                            <a class="nav-link tablinks" href="../stegano/f_embed.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Embedding
                             </a>
-                            <a class="nav-link tablinks" href="../stegano/ekstrak.php">
-                                <!-- <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Ekstraksi -->
+                            <a class="nav-link tablinks" href="../stegano/f_ekstrak.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Ekstraksi
                             </a>
-                            </button>
                         </div>
                     </div>
                 </div>

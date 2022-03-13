@@ -63,10 +63,10 @@ protected function bin2dec($b) {
 
 protected function getImg($img)
 {
-//  $img = $_FILES['image']['name'];
+ $img = $_FILES['image']['name'];
  $x = explode('.', $img);
  $ekstensi = strtolower(end($x));
-// $ekstensi = $_FILES['image']['type'];
+ $ekstensi_type = $_FILES['image']['type'];
  if ($ekstensi == "png" OR $ekstensi == "PNG")
   {
 		$this->imgName = $img;
@@ -75,8 +75,9 @@ protected function getImg($img)
 	list($this->width, $this->height) = getimagesize($img); 
  }else{
 	 
-	 echo "Gambar harus bertipe PNG";
-	 die();
+	//  echo "Gambar harus bertipe PNG";
+	//  die();
+	echo "<script>alert('Gambar harus bertipe PNG');window.location='../stegano/f_ekstrak.php'</script>";
  }
 	
 }
