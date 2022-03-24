@@ -15,22 +15,25 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="tab">
-                                <div class="sb-sidenav-menu-heading">Kriptografi</div>
-                                <button class="nav-link tablinks" onclick="openCity(event, 'Enkripsi')">
+                                <div class="sb-sidenav-menu-heading">Enkripsi - Embedding</div>
+                                <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Enkripsi')">
                                     <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Enkripsi
-                                </button>
-                                <button class="nav-link tablinks" onclick="openCity(event, 'Dekripsi')" id="defaultOpen">
-                                    <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
-                                </button>
-                                <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Prima')">Cek Bilangan Prima</button> -->
-
-                                <div class="sb-sidenav-menu-heading">Steganografi</div>
+                                </button> -->
+                                <a class="nav-link tablinks" href="../kripto/enkripsi.php">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Enkripsi
+                                </a>
                                 <a class="nav-link tablinks" href="../stegano/f_embed.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Embedding
                                 </a>
+                                <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Prima')">Cek Bilangan Prima</button> -->
+
+                                <div class="sb-sidenav-menu-heading">Ekstraksi - Dekripsi</div>
                                 <a class="nav-link tablinks" href="../stegano/f_ekstrak.php">
                                     <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Ekstraksi
                                 </a>
+                                <button class="nav-link tablinks" onclick="openCity(event, 'Dekripsi')" id="defaultOpen">
+                                    <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
+                                </button>
                             </a>
                             </div>
                         </div>
@@ -88,7 +91,6 @@
 
                                 <!-- Blok Dekripsi -->
                                 <div id="Dekripsi" class="tabcontent">
-                                    <h3 align="center">Proses Dekripsi</h3><hr>
                                     <p><b>Kunci privat (d, N) :</b></p> 
                                     <form method="post" action="dekripsi.php">
                                     <input type="number" class="form-control mb-3" placeholder="d" name="d" required>

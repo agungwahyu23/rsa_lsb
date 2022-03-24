@@ -9,6 +9,7 @@ protected $img;
 protected $imgName;
 protected $width;
 protected $height;
+protected $ekstensi;
 
 
 //method konversi string ke binary
@@ -67,17 +68,26 @@ protected function getImg($img)
  $x = explode('.', $img);
  $ekstensi = strtolower(end($x));
  $ekstensi_type = $_FILES['image']['type'];
- if ($ekstensi == "png" OR $ekstensi == "PNG")
+ if ($ekstensi == "bmp" OR $ekstensi == "BMP")
   {
+	  $direktori = "../stegano/";
+	  	$this->ekstensi = $ekstensi;
+		$this->imgName = $img;
+		$this->img = imagecreatefrombmp($img);
+	    
+	list($this->width, $this->height) = getimagesize($direktori.$img); 
+  }elseif ($ekstensi == "png" OR $ekstensi == "PNG")
+  {
+	  $direktori = "../stegano/";
+	  	$this->ekstensi = $ekstensi;
 		$this->imgName = $img;
 		$this->img = imagecreatefrompng($img);
 	    
-	list($this->width, $this->height) = getimagesize($img); 
- }else{
-	 
+	list($this->width, $this->height) = getimagesize($direktori.$img); 
+  }else{
 	//  echo "Gambar harus bertipe PNG";
 	//  die();
-	echo "<script>alert('Gambar harus bertipe PNG');window.location='../stegano/f_ekstrak.php'</script>";
+	echo "<script>alert('Gambar harus bertipe PNG atau BMP');window.location='../stegano/f_embed.php'</script>";
  }
 	
 }

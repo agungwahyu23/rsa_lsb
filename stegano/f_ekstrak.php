@@ -16,21 +16,21 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="tab">
-                            <div class="sb-sidenav-menu-heading">Enkripsi</div>
+                            <div class="sb-sidenav-menu-heading">Enkripsi - Embedding</div>
                             <a class="nav-link tablinks" href="../kripto/enkripsi.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Enkripsi
                             </a>
-                            <a class="nav-link tablinks" href="../kripto/dekripsi.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
-                            </a>
-                            <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Prima')">Cek Bilangan Prima</button> -->
-
-                            <div class="sb-sidenav-menu-heading">Steganografi</div>
                             <a class="nav-link tablinks" href="../stegano/f_embed.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock"></i></div>Embedding
                             </a>
+                            <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Prima')">Cek Bilangan Prima</button> -->
+
+                            <div class="sb-sidenav-menu-heading">Ekstraksi - Dekripsi</div>
                             <a class="nav-link tablinks" href="f_ekstrak.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Ekstraksi
+                            </a>
+                            <a class="nav-link tablinks" href="../kripto/dekripsi.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
                             </a>
                         </div>
                     </div>
@@ -45,7 +45,7 @@
         <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid">
-                        <h1 class="mt-4">Kriptografi</h1>
+                        <h1 class="mt-4">Steganografi</h1>
                         
                         <!-- Form Generator -->
                         <div class="card mb-4 mt-3">

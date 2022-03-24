@@ -60,16 +60,30 @@ for($x=0,$f=0;$x<$this->msgLength;$x=$x+3,$f++){
   $this->pixelX++; 
 
 }	
-	$this->imgName = "LSB-1bit_".$this->imgName;
+	$this->imgName = ("LSB-1bit_".$this->imgName);
+  
 } // akhir method lsb1bit
 
 
 private function newImg()
 {
-	if(imagepng($this->img,$this->imgName))
+  if ($this->ekstensi == "png" || $this->ekstensi == "PNG") {
+    if(imagepng($this->img,$this->imgName))
     {
-        echo "<script>alert('Berhasil');window.location='f_embed.php'</script>";   
-    };
+      echo "<script>alert('Berhasil enkripsi file PNG');window.location='f_embed.php'</script>";   
+    }
+  }else{
+    if(imagebmp($this->img,$this->imgName))
+    {
+      echo "<script>alert('Berhasil enkripsi file BMP');window.location='f_embed.php'</script>";   
+    }
+  }
+	// if(imagebmp($this->img,$this->imgName))
+  // {
+  //   echo "<script>alert('Berhasil enkripsi file BMP');window.location='f_embed.php'</script>";   
+  // }elseif(imagepng($this->img,$this->imgName)){
+  //   echo "<script>alert('Berhasil enkripsi file PNG');window.location='f_embed.php'</script>";   
+  // }
 	imagedestroy($this->img);
 
 	$this->pixelX=0; 
