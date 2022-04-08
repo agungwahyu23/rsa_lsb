@@ -32,13 +32,15 @@
                             <a class="nav-link tablinks" href="../kripto/dekripsi.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
                             </a>
+
+                            <div class="sb-sidenav-menu-heading">MSE & PSNR</div>
+                            <a class="nav-link tablinks" href="f_psnr.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>Hasil MSE & PSNR
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
-                </div>
+               
             </nav>
         </div>
 
@@ -60,7 +62,7 @@
                                         <div class="row mb-3">
                                             <label for="nilaiP" class="col-sm-2 col-form-label">Pilih Gambar</label>
                                             <div class="col-md-9">
-                                                <input type="file" name="image" id="image" class="form-control">
+                                                <input type="file" name="image" id="image" class="form-control" required>
                                             </div>
                                         </div>
                                         <div class="row">

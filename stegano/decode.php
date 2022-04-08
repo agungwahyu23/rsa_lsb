@@ -12,14 +12,12 @@ private $message='';
   public function findMsg(){
     
     for ($x = 0; $x < ($this->width*$this->height); $x++) { 
-        if($this->pixelX === $this->width-1){ 
+        if($this->pixelX === $this->width){ 
           $this->pixelY++;
           $this->pixelX=0;
         }
       
-        if($this->pixelY=== ($this->height-10)){ 
-        // echo "Tidak ada pesan...";
-        //   die();
+        if($this->pixelY=== ($this->height)){ 
         echo "<script>alert('Tidak ada pesan');window.location='f_ekstrak.php'</script>";
         }
 
@@ -33,60 +31,46 @@ private $message='';
         $B = $this->dec2bin($b); 
 
         for($j=1;$j>0;$j--){
-
           $this->message .= $R[strlen($R) - $j]; 
           $this->count++;
             if ($this->count == 8) { 
                 if (parent::bin2str(substr($this->message, -8)) === '|') { 
-                  
                     $this->message = parent::bin2str(substr($this->message,0,-8)); 
-                    
-                    
                       $message_1 = $this->message;
                       echo $message_1;
                       die;
-                    
                 }
                 $this->count = 0; 
             }
         }
       
       for($j=1;$j>0;$j--){
-
         $this->message .= $G[strlen($G) - $j]; 
         $this->count++;
         if ($this->count == 8) { 
             if (parent::bin2str(substr($this->message, -8)) === '|') { 
-              
                 $this->message = parent::bin2str(substr($this->message,0,-8)); 
-                
                   $message_2 = $this->message;
                   echo $message_2;
                   die;
-                
             }
             $this->count = 0; 
         }
       }
       
       for($j=1;$j>0;$j--){
-
         $this->message .= $B[strlen($B) - $j]; 
         $this->count++;
         if ($this->count == 8) { 
             if (parent::bin2str(substr($this->message, -8)) === '|') { 
-              
                 $this->message = parent::bin2str(substr($this->message,0,-8)); 
-                
                   $message_3 = $this->message;
                   echo $message_3;
-                  die;
-                
+                  die;   
             }
             $this->count = 0; 
         }
       }
-
       $this->pixelX++; 
     }
   } //akhir method findMSg

@@ -1,5 +1,5 @@
 <?php
-require_once('encode.php');
+require_once('embed.php');
 
 $pesan = $_POST['pesan'];
 $image = $_FILES['image'];

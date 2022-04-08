@@ -32,16 +32,18 @@
                             <a class="nav-link tablinks" href="../kripto/dekripsi.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
                             </a>
+
+                            <div class="sb-sidenav-menu-heading">MSE & PSNR</div>
+                            <a class="nav-link tablinks" href="../stegano/f_psnr.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>Hasil MSE & PSNR
+                            </a>
                             <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Dekripsi')">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
                             </button> -->
                         </div>
                     </div>
                 </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    Start Bootstrap
-                </div>
+                
             </nav>
         </div>
             
