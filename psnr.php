@@ -66,7 +66,6 @@ for ($y=0; $y < $height; $y++) {
     }
 }
 
-
 // echo "<br> jmlh piksel error (kuadrat) = ".$temp."<br>";
 $mser = $tempr / ($width * $height);
 $mseg = $tempg / ($width * $height);
@@ -103,28 +102,22 @@ for ($y=0; $y < $height2; $y++) {
      $r3 = ($rgb3 >> 16) & 0xFF;
      $g3 = ($rgb3 >>8) & 0xFF; 
      $b3 = $rgb3 & 0xFF;
-    //  $qty1 = $r1 * $g1 * $b1;
 
      $rgb4 = imagecolorat($imageBMP2, $x, $y);
      $r4 = ($rgb4 >> 16) & 0xFF;
      $g4 = ($rgb4 >>8) & 0xFF; 
      $b4 = $rgb4 & 0xFF;
-    //  $qty2 = $r2 * $g2 * $b2;
      
      //menghitung perbedaan pixel pada warna r,g,b
      $difr = $r3 - $r4;
      $difg = $g3 - $g4;
      $difb = $b3 - $b4;
 
-     //jika dihitung nilai r,g,b
-    //  $diff = $qty1 - $qty2;
-     // echo $diff." ";
      $temr += pow($difr, 2);
      $temg += pow($difg, 2);
      $temb += pow($difb, 2);
     }
 }
-
 
 // echo "<br> jmlh piksel error (kuadrat) = ".$temp."<br>";
 $mr = $temr / ($width2 * $height2);

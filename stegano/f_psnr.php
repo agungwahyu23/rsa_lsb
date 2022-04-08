@@ -7,34 +7,113 @@
 
 <!-- Proses MSE & PSNR -->
 <?php
-    $image1 = imagecreatefrompng("sample_640×426.png");
-    $image2 = imagecreatefrompng("Hasil-sample_640×426.png");
+    $image1 = imagecreatefrompng("250x247.png");
+    $image2 = imagecreatefrompng("Hasil-250x247.png");
     
     $mse = 0;
     $width = imagesx($image1);
     $height = imagesy($image1);
-    $temp = 0;
+    $tempr = 0;
+    $tempg = 0;
+    $tempb = 0;
     
     for ($y=0; $y < $height; $y++) { 
         for ($x=0; $x < $width; $x++) { 
-        $rgb1 = imagecolorat($image1, $x, $y);
-        $r1 = ($rgb1 >> 16) & 0xFF;
+         $rgb1 = imagecolorat($image1, $x, $y);
+         $r1 = ($rgb1 >> 16) & 0xFF;
+         $g1 = ($rgb1 >>8) & 0xFF; 
+         $b1 = $rgb1 & 0xFF;
+         $qty1 = $r1 * $g1 * $b1;
     
-        $rgb2 = imagecolorat($image2, $x, $y);
-        $r2 = ($rgb2 >> 16) & 0xFF;
+         $rgb2 = imagecolorat($image2, $x, $y);
+         $r2 = ($rgb2 >> 16) & 0xFF;
+         $g2 = ($rgb2 >>8) & 0xFF; 
+         $b2 = $rgb2 & 0xFF;
+        //  $qty2 = $r2 * $g2 * $b2;
+         
+         //menghitung perbedaan pixel pada warna r,g,b
+         $diffr = $r1 - $r2;
+         $diffg = $g1 - $g2;
+         $diffb = $b1 - $b2;
     
-        $diff = $r1 - $r2;
-        // echo $diff." ";
-        $temp += pow($diff, 2);
+         //jika dihitung nilai r,g,b
+        //  $diff = $qty1 - $qty2;
+         // echo $diff." ";
+         $tempr += pow($diffr, 2);
+         $tempg += pow($diffg, 2);
+         $tempb += pow($diffb, 2);
         }
     }
     
     // echo "<br> jmlh piksel error (kuadrat) = ".$temp."<br>";
-    // mse
-    $mse = $temp / ($width * $height);
-    // psnr
-    $ratio = pow(255, 2) / $mse;
-    $psnr = 10 * log10($ratio);
+    $mser = $tempr / ($width * $height);
+    $mseg = $tempg / ($width * $height);
+    $mseb = $tempb / ($width * $height);
+    
+    // echo "MSE Red= ".$mser."<br>";
+    // echo "MSE Green= ".$mseg."<br>";
+    // echo "MSE Blue= ".$mseb."<br><br>";
+    
+    $ratior = pow(255, 2) / $mser;
+    $ratiog = pow(255, 2) / $mseg;
+    $ratiob = pow(255, 2) / $mseb;
+    $psnrr = 10 * log10($ratior);
+    $psnrg = 10 * log10($ratiog);
+    $psnrb = 10 * log10($ratiob);
+    
+    // echo "PSNR Red= ".$psnrr."<br>PSNR Green= ".$psnrg."<br>PSNR Blue= ".$psnrb."<br><br>";
+    
+    
+    $imageBMP1 = imagecreatefrombmp("sample_640×426.bmp");
+    $imageBMP2 = imagecreatefrombmp("Hasil-sample_640×426.bmp");
+    
+    $mse = 0;
+    $width2 = imagesx($imageBMP1);
+    $height2 = imagesy($imageBMP1);
+    $temr = 0;
+    $temg = 0;
+    $temb = 0;
+    
+    for ($y=0; $y < $height2; $y++) { 
+        for ($x=0; $x < $width2; $x++) { 
+         $rgb3 = imagecolorat($imageBMP1, $x, $y);
+         $r3 = ($rgb3 >> 16) & 0xFF;
+         $g3 = ($rgb3 >>8) & 0xFF; 
+         $b3 = $rgb3 & 0xFF;
+    
+         $rgb4 = imagecolorat($imageBMP2, $x, $y);
+         $r4 = ($rgb4 >> 16) & 0xFF;
+         $g4 = ($rgb4 >>8) & 0xFF; 
+         $b4 = $rgb4 & 0xFF;
+         
+         //menghitung perbedaan pixel pada warna r,g,b
+         $difr = $r3 - $r4;
+         $difg = $g3 - $g4;
+         $difb = $b3 - $b4;
+    
+         $temr += pow($difr, 2);
+         $temg += pow($difg, 2);
+         $temb += pow($difb, 2);
+        }
+    }
+    
+    // echo "<br> jmlh piksel error (kuadrat) = ".$temp."<br>";
+    $mr = $temr / ($width2 * $height2);
+    $mg = $temg / ($width2 * $height2);
+    $mb = $temb / ($width2 * $height2);
+    
+    // echo "MSE Red= ".$mr."<br>";
+    // echo "MSE Green= ".$mg."<br>";
+    // echo "MSE Blue= ".$mb."<br><br>";
+    
+    $ratr = pow(255, 2) / $mr;
+    $ratg = pow(255, 2) / $mg;
+    $ratb = pow(255, 2) / $mb;
+    $pr = 10 * log10($ratr);
+    $pg = 10 * log10($ratg);
+    $pb = 10 * log10($ratb);
+    
+    // echo "PSNR Red= ".$pr."<br>PSNR Green= ".$pg."<br>PSNR Blue= ".$pb."<br>";
 ?>
 <!-- End Proses MSE & PSNR -->
 
@@ -86,7 +165,7 @@
                     <div class="card mb-4 mt-3">
                         <div class="card-header">
                             <i class="fas fa-table mr-1"></i>
-                            Hasil MSE dan PSNR
+                            MSE dan PSNR
                         </div>
                         <div class="card-body">
 
@@ -101,21 +180,103 @@
                                         <label for="nilaiP" class="col-sm-2 col-form-label">PSNR</label>
                                         <img src="../assets/img/psnr.JPG" alt="">
                                     </div>
-                                <hr>
-                                <h4><u>Hasil MSE dan PSNR</u></h3>
-                                    <div class="row mb-3">
-                                        <label for="nilaiP" class="col-sm-2 col-form-label">MSE</label>
-                                        <p>: <?= $mse?></p>
-                                    </div>
-                                    <div class="row mb-3">
-                                        <label for="nilaiP" class="col-sm-2 col-form-label">PSNR</label>
-                                        <p>: <?= $psnr ?> dB</p>
-                                    </div>
                             </div>
                             <!-- / end enkripsi -->
-
                         </div>
                     </div>
+
+                    <!-- Table MSE -->
+                    <div class="box">
+                        <div class="box-header">
+                            <h5 class="box-title">MSE</h5>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body table-responsive">
+                            <table id="table1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="width:5%;">No</th>
+                                        <th>Ekstensi</th>
+                                        <th>Cover Image</th>
+                                        <th>Stego Image</th>
+                                        <th>Pixel Red</th>
+                                        <th>Pixel Green</th>
+                                        <th>Pixel Blue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php $no=1; ?>
+                                    <tr>
+                                        <td><?= $no++; ?></td>
+                                        <td>PNG</td>
+                                        <td><img src="250x247.png" alt="" style="width:100px"></td>
+                                        <td><img src="Hasil-250x247.png" alt="" style="width:100px"></td>
+                                        <td><?= $mser ?></td>
+                                        <td><?= $mseg ?></td>
+                                        <td><?= $mseb ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><?= $no++; ?></td>
+                                        <td>BMP</td>
+                                        <td><img src="sample_640×426.bmp" alt="" style="width:100px"></td>
+                                        <td><img src="Hasil-sample_640×426.bmp" alt="" style="width:100px"></td>
+                                        <td><?= $mr ?></td>
+                                        <td><?= $mg ?></td>
+                                        <td><?= $mb ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                    <!-- ENd Table -->
+
+                    <!-- Table PSNR -->
+                    <div class="box">
+                        <div class="box-header">
+                            <h5 class="box-title">PSNR</h5>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body table-responsive">
+                            <table id="table1" class="table table-bordered table-striped">
+                                <thead>
+                                    <tr>
+                                        <th style="width:5%;">No</th>
+                                        <th>Ekstensi</th>
+                                        <th>Cover Image</th>
+                                        <th>Stego Image</th>
+                                        <th>Pixel Red</th>
+                                        <th>Pixel Green</th>
+                                        <th>Pixel Blue</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                <?php $no=1; ?>
+                                    <tr>
+                                        <td><?= $no++; ?></td>
+                                        <td>PNG</td>
+                                        <td><img src="250x247.png" alt="" style="width:100px"></td>
+                                        <td><img src="Hasil-250x247.png" alt="" style="width:100px"></td>
+                                        <td><?= $psnrr ?></td>
+                                        <td><?= $psnrg ?></td>
+                                        <td><?= $psnrb ?></td>
+                                    </tr>
+                                    <tr>
+                                        <td><?= $no++; ?></td>
+                                        <td>BMP</td>
+                                        <td><img src="sample_640×426.bmp" alt="" style="width:100px"></td>
+                                        <td><img src="Hasil-sample_640×426.bmp" alt="" style="width:100px"></td>
+                                        <td><?= $pr ?></td>
+                                        <td><?= $pg ?></td>
+                                        <td><?= $pb ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- End Table PSNR -->
 
                 </div>
             </main>
