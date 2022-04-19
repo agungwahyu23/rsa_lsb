@@ -37,6 +37,10 @@
                             <a class="nav-link tablinks" href="../stegano/f_psnr.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>Hasil MSE & PSNR
                             </a>
+                            <div class="sb-sidenav-menu-heading">help</div>
+                            <a class="nav-link tablinks" href="help.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>Panduan
+                            </a>
                             <!-- <button class="nav-link tablinks" onclick="openCity(event, 'Dekripsi')">
                                 <div class="sb-nav-link-icon"><i class="fas fa-lock-open"></i></div>Dekripsi
                             </button> -->

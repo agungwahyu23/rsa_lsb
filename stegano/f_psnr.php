@@ -149,6 +149,10 @@
                             <a class="nav-link tablinks" href="f_psnr.php">
                                 <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>Hasil MSE & PSNR
                             </a>
+                            <div class="sb-sidenav-menu-heading">Petunjuk</div>
+                            <a class="nav-link tablinks" href="../kripto/help.php">
+                                <div class="sb-nav-link-icon"><i class="fas fa-book"></i></div>Panduan
+                            </a>
                         </div>
                     </div>
                 </div>
