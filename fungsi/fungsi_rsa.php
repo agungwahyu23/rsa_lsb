@@ -61,7 +61,7 @@ explode    = Memecah String;
         // Menghitung N = P*Q
         $n = gmp_mul($p, $q);
         $valn = gmp_strval($n);
-        // Menghitung Nilai M =(p-1)*(q-1)
+        // Menghitung Nilai tau(n) -> M =(p-1)*(q-1)
         $m = gmp_mul(gmp_sub($p, 1),gmp_sub($q, 1));
         // Mencari E (Kunci Public --> (e,n))
         // Membuktikan E = FPB (Faktor Persekutuan Terbesar) dari E dan M = 1

@@ -1,4 +1,7 @@
 <?php
+
+use function PHPSTORM_META\type;
+
 require_once('../fungsi/converter.php');
 
 class encode extends converter {
@@ -64,37 +67,37 @@ for($x=0,$f=0;$x<$this->msgLength;$x=$x+3,$f++){
   $this->pixelX++; 
 
 }	
-	$this->imgName = ("Hasil-".$this->imgName);
+  $direktori = "../file/";
+	$this->imgName = ($direktori."Hasil-".$this->imgName);
   
 } // akhir method lsb1bit
-
 
 private function newImg()
 {
   if ($this->ekstensi == "png" || $this->ekstensi == "PNG") {
     if(imagepng($this->img,$this->imgName))
     {
-      echo "<script>alert('Berhasil enkripsi file PNG');window.location='f_embed.php'</script>";   
+      echo "Berhasil melakukan embedding PNG <br>
+      <a class='btn btn-xs btn-primary' href='$this->imgName' download>Download</a> <br>
+      <a class='btn btn-xs btn-primary' href='f_embed.php'>Kembali</a>";
+      // echo "<script>alert('Berhasil enkripsi file PNG');window.location='f_embed.php'</script>";   
     }
   }else{
     if(imagebmp($this->img,$this->imgName))
     {
-      echo "<script>alert('Berhasil enkripsi file BMP');window.location='f_embed.php'</script>";   
+      echo "Berhasil melakukan embedding BMP <br>
+      <a class='btn btn-xs btn-primary' href='$this->imgName' download>Download</a> <br>
+      <a class='btn btn-xs btn-primary' href='f_embed.php'>Kembali</a>";
+      // echo "<script>alert('Berhasil enkripsi file BMP');window.location='f_embed.php'</script>";   
     }
   }
-	// if(imagebmp($this->img,$this->imgName))
-  // {
-  //   echo "<script>alert('Berhasil enkripsi file BMP');window.location='f_embed.php'</script>";   
-  // }elseif(imagepng($this->img,$this->imgName)){
-  //   echo "<script>alert('Berhasil enkripsi file PNG');window.location='f_embed.php'</script>";   
-  // }
+	
 	imagedestroy($this->img);
 
 	$this->pixelX=0; 
 	$this->pixelY=0; 
 
 } // akhir method newImg
-
 
 public function executeLSB($msg,$img)
 {

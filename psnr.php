@@ -1,5 +1,17 @@
 <?php
 include('func.php');
+// $pngkat = 129^103;
+// $hasill = gmp_strval(gmp_mod(gmp_pow(80,103),143));
+// echo $hasill."<br>";
+// $a = rand(2, 10);
+// $b = rand(2,9);
+// $e=array($a,$b);
+// return $e[array_rand($e)];
+// echo $e."<br>";
+
+$pangkat = gmp_pow(129,5);
+$mod = gmp_mod($pangkat,221);
+echo "hasil pangkat = ".$mod."<br>";
 
 $teks = str_repeat('a', 1*23156);
 $tbin = toBin($teks); 
@@ -71,6 +83,7 @@ $mser = $tempr / ($width * $height);
 $mseg = $tempg / ($width * $height);
 $mseb = $tempb / ($width * $height);
 
+echo "MSE Red= ".$tempb." - ".$b2."<br>";
 echo "MSE Red= ".$mser."<br>";
 echo "MSE Green= ".$mseg."<br>";
 echo "MSE Blue= ".$mseb."<br><br>";

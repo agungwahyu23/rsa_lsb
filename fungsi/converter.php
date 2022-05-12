@@ -68,20 +68,23 @@ protected function getImg($img)
  $x = explode('.', $img);
  $ekstensi = strtolower(end($x));
  $ekstensi_type = $_FILES['image']['type'];
+ $file_tmp = $_FILES['image']['tmp_name'];
  if ($ekstensi == "bmp" OR $ekstensi == "BMP")
   {
-	  $direktori = "../stegano/";
+	move_uploaded_file($file_tmp, '../file/'.$img);
+	  $direktori = "../file/";
 	  	$this->ekstensi = $ekstensi;
 		$this->imgName = $img;
-		$this->img = imagecreatefrombmp($img);
+		$this->img = imagecreatefrombmp($direktori.$img);
 	    
 	list($this->width, $this->height) = getimagesize($direktori.$img); 
   }elseif ($ekstensi == "png" OR $ekstensi == "PNG")
   {
-	  $direktori = "../stegano/";
+	move_uploaded_file($file_tmp, '../file/'.$img);
+	  $direktori = "../file/";
 	  	$this->ekstensi = $ekstensi;
 		$this->imgName = $img;
-		$this->img = imagecreatefrompng($img);
+		$this->img = imagecreatefrompng($direktori.$img);
 	    
 	list($this->width, $this->height) = getimagesize($direktori.$img); 
   }else{

@@ -51,8 +51,8 @@
                 <main>
                     <div class="container-fluid">
                         <div class="mt-4 embed-responsive embed-responsive-21by9">
-                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bpdagqH6dRA"
-                                allowfullscreen></iframe>
+                            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nz-6kN2BHCs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bpdagqH6dRA" allowfullscreen></iframe> -->
                         </div>
                     </div>
                 </main>
