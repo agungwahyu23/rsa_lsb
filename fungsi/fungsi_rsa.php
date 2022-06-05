@@ -2,8 +2,12 @@
 /* 
 keterangan Masing Masing Fungsi yang dipake dari Library gmp & PHP --
 
+gmp_gcd    = mencari fpb;
+gmp_mul    = perkalian;
+gmp_add    = penjumlahan;
+gmp_sub    = pengurangan;
 gmp_mod    = Sisa Hasil Bagi;
-gmp_pow    = Raise number into power;
+gmp_pow    = Raise number into power (pangkat);
 ord        = Mengembalikan Nilai Karakter Ke ASCII;
 strlen     = Dapatkan Panjang String;
 gmp_strval = Convert Nomer ke String;
@@ -13,11 +17,11 @@ explode    = Memecah String;
 */  
     // Acak e semua bilangan bilangan yang relatif prima terhadap (p-1), (p+1), (q-1) dan (q+1)
     function e($p,$q){
-            $a=rand(2,$p-1);
-            $b=rand(2,$p+1);
-            $c=rand(2,$q+1);
+            $a=rand(2,$p-1); //mencari bilangan random dari 2 sampai p-1
+            // $b=rand(2,$p+1);
+            // $c=rand(2,$q+1);
             $d=rand(2,$q-1);
-            $e=array($a,$b,$c,$d);
+            $e=array($a,$d);
             return $e[array_rand($e)];
     }
     // Proses Enkripsi
@@ -60,14 +64,14 @@ explode    = Memecah String;
         // Inisialisasi P & Q (Masing Masing adalah Bilangan Prima) <--- Lebih Besar Lebih Bagus
         // Menghitung N = P*Q
         $n = gmp_mul($p, $q);
-        $valn = gmp_strval($n);
-        // Menghitung Nilai tau(n) -> M =(p-1)*(q-1)
+        $valn = gmp_strval($n); //convert ke string
+        // Menghitung Nilai totien(n) -> M =(p-1)*(q-1)
         $m = gmp_mul(gmp_sub($p, 1),gmp_sub($q, 1));
         // Mencari E (Kunci Public --> (e,n))
         // Membuktikan E = FPB (Faktor Persekutuan Terbesar) dari E dan M = 1
         for($e; $e < 1000; $e++){  // Mencoba dengan Perulangan 1000 Kali 
             $fpb = gmp_gcd($e, $m);
-            if(gmp_strval($fpb)=='1') // Jika Benar E adalah FPB dari E dan M = 1 <-- Hentikan Proses
+            if(gmp_strval($fpb)=='1') // diconvert jadi string untuk melakukan perbandingan (==). Jika Benar E adalah FPB dari E dan M = 1 <-- Hentikan Proses
             break;
         }
         // Menghitung D (Kunci Private --> (d,n))

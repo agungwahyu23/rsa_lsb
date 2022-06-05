@@ -25,7 +25,7 @@ protected function str2bin($str){
 
 //method konversi binary ke string
 protected function bin2str($str) {
-    $text_array = explode("\r\n", chunk_split($str, 8));
+    $text_array = explode("\r\n", chunk_split($str, 8)); //pisahkan string menurut tanda pemisah(enter&new line) lalu bagi kalimat kedalam bagian lebih kecil dgn pjg chuncks 8
     $newstring = '';
     for ($n = 0; $n < count($text_array) - 1; $n++) {
         $newstring .= chr(base_convert($text_array[$n], 2, 10));

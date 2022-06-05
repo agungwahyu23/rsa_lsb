@@ -94,7 +94,7 @@
                                     </form>
 
 
-                                    <?php if (isset($_POST['enkripsi'])){
+                                    <?php if (isset($_POST['enkripsi'])){ //jika form tidak kosong dan tombol enkripsi ditekan munculkan hasil
                                     echo '
                                         <hr><h3 align="center">Hasil Enkripsi</h3><hr>
                                         <p><b>Pesan plainteks :</b></p>
@@ -116,23 +116,7 @@
                                 </div>
                                 <!-- / end enkripsi -->
 
-                                <!-- Blok Dekripsi -->
-                                <div id="Dekripsi" class="tabcontent">
-                                    <hr>
-                                    <p><b>Kunci privat (d, N) :</b></p>
-                                    <form method="post" action="dekripsi.php">
-                                        <input type="number" class="form-control mb-3" placeholder="d" name="d"
-                                            value="<?php if(isset($_POST['enkripsi'])){echo $d;} ?>" required>
-                                        <input type="number" class="form-control mb-3" placeholder="N" name="n"
-                                            value="<?php if(isset($_POST['enkripsi'])){echo $n;} ?>" required>
-                                        <p><b>Pesan :</b></p>
-                                        <textarea rows="4" class="form-control mb-3" cols="50" placeholder="Chiperteks" name="teks" id="teks"
-                                            required><?php if(isset($_POST['enkripsi'])){echo $chipertext;} ?></textarea>
-                                        <button type="submit" class="submit" name="dekripsi" id="dekripsi"
-                                            value="dekripsi">Dekripsi</button>
-                                    </form>
-                                </div>
-                                <!-- / end dekripsi -->
+                                
 
                             </div>
                         </div>

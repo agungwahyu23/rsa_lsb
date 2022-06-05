@@ -13,7 +13,8 @@ $pangkat = gmp_pow(129,5);
 $mod = gmp_mod($pangkat,221);
 echo "hasil pangkat = ".$mod."<br>";
 
-$teks = str_repeat('a', 1*23156);
+// $teks = str_repeat('a', 1*23156);
+$teks = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Utmi";
 $tbin = toBin($teks); 
 $msgLength = strlen($tbin);
 echo "panjang karakter : ".$msgLength."<br>";

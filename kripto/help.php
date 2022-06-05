@@ -54,6 +54,9 @@
                             <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/nz-6kN2BHCs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             <!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/bpdagqH6dRA" allowfullscreen></iframe> -->
                         </div>
+                        <div>
+                            <a href="../file/PANDUAN-PENGGUNAAN-SISTEM.pdf" target="blank" class="btn btn-info mt-3"><i class="fa fa-book"></i>Unduh Manual Book</a>
+                        </div>
                     </div>
                 </main>
                 

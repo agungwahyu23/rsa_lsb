@@ -11,24 +11,28 @@ protected $stmt;
  * */
 private function lsb_1_bit()
 {
-	
+
+  //x hitung baris(kekanan) untuk menyisipkan pesan tiap pixel, f hitung baris(kebawah)
 for($x=0,$f=0;$x<$this->msgLength;$x=$x+3,$f++){ 
 
+  //menghitung jumlah pixel-1 (lsb)
   if($this->pixelX === $this->width-1){ 
     $this->pixelY++;
     $this->pixelX=0;
   }
 
-  if($this->pixelY===($this->height - 10)){ 
+  // if($this->pixelY===($this->height - 10)){
+  if($this->pixelY===($this->height)){ 
     echo "Pesan melebihi daya tampung!";
     die();
   }
   
+  //memecah warna pixel untuk mendapatkan nilai masing2 pixel warna
   $rgb = imagecolorat($this->img,$this->pixelX,$this->pixelY); 
   $r = ($rgb >>16) & 0xFF; 
   $g = ($rgb >>8) & 0xFF; 
   $b = $rgb & 0xFF;
-  $this->qtyPxl[0][$f] = $r + $g + $b;
+  $this->qtyPxl[0][$f] = $r + $g + $b; //pixel asli sebelum disisipi
   $y = $x + 1;
   $z = $x + 2;
 
@@ -53,14 +57,15 @@ for($x=0,$f=0;$x<$this->msgLength;$x=$x+3,$f++){
 	}
 	$newB = parent::bin2dec($newB); 
 	
-   $this->qtyPxl[1][$f] = $newR + $newG + $newB;
+   $this->qtyPxl[1][$f] = $newR + $newG + $newB; //pixel setelah disisipi pesan
 
   $new_color = imagecolorallocate($this->img,$newR,$newG,$newB); 
   imagesetpixel($this->img,$this->pixelX,$this->pixelY,$new_color); 
   $this->pixelX++; 
 
 }	
-	$this->imgName = ("Hasil-".$this->imgName);
+$direktori = "../file/";
+$this->imgName = ($direktori."Hasil-".$this->imgName);
   
 } // akhir method lsb1bit
 
@@ -70,20 +75,21 @@ private function newImg()
   if ($this->ekstensi == "png" || $this->ekstensi == "PNG") {
     if(imagepng($this->img,$this->imgName))
     {
-      echo "<script>alert('Berhasil enkripsi file PNG');window.location='f_embed.php'</script>";   
+      echo "Berhasil melakukan embedding PNG <br>
+      <a class='btn btn-xs btn-primary' href='$this->imgName' download>Download</a> <br>
+      <a class='btn btn-xs btn-primary' href='f_embed.php'>Kembali</a>";
+      // echo "<script>alert('Berhasil enkripsi file PNG');window.location='f_embed.php'</script>";   
     }
   }else{
     if(imagebmp($this->img,$this->imgName))
     {
-      echo "<script>alert('Berhasil enkripsi file BMP');window.location='f_embed.php'</script>";   
+      echo "Berhasil melakukan embedding BMP <br>
+      <a class='btn btn-xs btn-primary' href='$this->imgName' download>Download</a> <br>
+      <a class='btn btn-xs btn-primary' href='f_embed.php'>Kembali</a>";
+      // echo "<script>alert('Berhasil enkripsi file BMP');window.location='f_embed.php'</script>";   
     }
   }
-	// if(imagebmp($this->img,$this->imgName))
-  // {
-  //   echo "<script>alert('Berhasil enkripsi file BMP');window.location='f_embed.php'</script>";   
-  // }elseif(imagepng($this->img,$this->imgName)){
-  //   echo "<script>alert('Berhasil enkripsi file PNG');window.location='f_embed.php'</script>";   
-  // }
+
 	imagedestroy($this->img);
 
 	$this->pixelX=0; 
@@ -98,8 +104,11 @@ public function executeLSB($msg,$img)
 parent::getMsg($msg);
 parent::getImg($img);
 
-if($this->msgLength>($this->width*$this->height)-100){ 
-  echo "Pesan melebihi daya tampung!";
+// if($this->msgLength>($this->width*$this->height)-100){ 
+if($this->msgLength > ($this->width*$this->height)*3){ 
+    $cap = (($this->width * $this->height)/1)*3;
+    $msgL = $this->msgLength;
+  echo "Pesan melebihi daya! <br> $cap <br> $msgL";
   die();
 }
 

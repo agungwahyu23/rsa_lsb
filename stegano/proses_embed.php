@@ -16,7 +16,7 @@ $image = $_FILES['image'];
 
 
 
-$lets_encode = new encode();
+$lets_encode = new embed();
 
 $lets_encode->executeLSB($pesan,$image);
 
